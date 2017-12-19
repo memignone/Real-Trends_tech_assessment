@@ -153,7 +153,6 @@ SECURE_HSTS_PRELOAD = True  # used for HTTPS
 CALLBACK_URL = os.environ.get('CALLBACK_URL')
 CLIENT_ID = os.environ.get('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
-ML_PYTHON3_SDK_PATH = os.environ.get(
-    'ML_PYTHON3_SDK_PATH', "C:\\Users\\memig\\GitHub\\TR_assessment\\realtrends\\ml_python3_sdk\\lib")
+ML_PYTHON3_SDK_PATH = os.environ.get('ML_PYTHON3_SDK_PATH')
 
 sys.path.append(ML_PYTHON3_SDK_PATH)

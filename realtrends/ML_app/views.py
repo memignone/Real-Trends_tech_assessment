@@ -72,6 +72,11 @@ class HomeView(TemplateView):
     """
     template_name = 'home.html'
 
+    def get(self, request, *args, **kwargs):
+        if self.request.session.get('ACCESS_TOKEN') is None:
+            return redirect('login')
+        return super().get(request, *args, **kwargs)
+
 
 class ListItemView(FormView):
     """
@@ -80,6 +85,11 @@ class ListItemView(FormView):
     form_class = ListingForm
     template_name = 'list_item.html'
     success_url = reverse_lazy('home')
+
+    def get(self, request, *args, **kwargs):
+        if self.request.session.get('ACCESS_TOKEN') is None:
+            return redirect('login')
+        return super().get(request, *args, **kwargs)
 
     def get_form(self, form_class=None):
         if form_class is None:
@@ -121,6 +131,11 @@ class ActiveListingsView(TemplateView):
     Displays the active listings of the authenticated user
     """
     template_name = 'active_listings.html'
+
+    def get(self, request, *args, **kwargs):
+        if self.request.session.get('ACCESS_TOKEN') is None:
+            return redirect('login')
+        return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="col-md-6 col-md-offset-3">
+    <ul class="list-group text-center">
+        <li class="list-group-item">
+            <a href={% url 'home' %}>Volver a home</a>
+        </li>
+        <li class="list-group-item">
+            <a href={% url 'logout' %}>Cerrar sesión</a>
+        </li>
+    </ul>
+</div>
+<div class="col-md-6 col-md-offset-3">
+<div class="panel panel-default">
+        <div class="panel-heading text-center"><h3>Nueva publicación</h3></div>
+        <div class="panel-body">
+            <form class="form-group" method='POST' enctype="multipart/form-data">{% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-primary pull-right" type="submit">Publicar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

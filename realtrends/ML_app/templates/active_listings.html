@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 col-md-offset-3">
+    <ul class="list-group text-center">
+        <li class="list-group-item">
+            <a href={% url 'home' %}>Volver a home</a>
+        </li>
+        <li class="list-group-item">
+            <a href={% url 'logout' %}>Cerrar sesión</a>
+        </li>
+    </ul>
+</div>
+<table class="table table-hover">
+    <caption>
+        <h2 class="text-center">Publicaciones activas</h2>
+    </caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Permalink</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for publicacion in publicaciones %}
+        <tr>
+            <td>{{ publicacion.id }}</td>
+            <td>{{ publicacion.title }}</td>
+            <td>$ {{ publicacion.price }}</td>
+            <td><a href={{ publicacion.permalink }}>link</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td class="text-center" colspan="4">No se encontraron publicaciones activas</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

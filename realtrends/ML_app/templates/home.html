@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 col-md-offset-3">
+    <ul class="list-group text-center">
+        <li class="list-group-item">
+            <a href={% url 'list_item' %}>Publicar en MercadoLibre</a>
+        </li>
+        <li class="list-group-item">
+            <a href={% url 'active_listings' %}>Listar tus publicaciones activas</a>
+        </li>
+        <li class="list-group-item">
+            <a href={% url 'logout' %}>Cerrar sesión</a>
+        </li>
+    </ul>
+</div>
+{% endblock content %}
